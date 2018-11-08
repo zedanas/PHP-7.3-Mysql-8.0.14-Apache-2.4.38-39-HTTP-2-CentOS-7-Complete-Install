@@ -1,0 +1,25 @@
+rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY*
+yum -y install epel-release
+rpm -Uvh http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+rpm -Uvh http://repo.mysql.com/mysql-community-release-el7-7.noarch.rpm
+yum -y install nano
+yum -y install vim
+yum -y install mysql-server
+yum -y install maxscale
+systemctl start mysqld.service
+systemctl enable mysqld.service
+yum --enablerepo=remi-php73 install php -y
+yum --enablerepo=epel,remi install httpd -y
+systemctl start httpd.service
+systemctl enable httpd.service
+yum -y install yum-utils
+yum update
+yum-config-manager --enable remi-php73
+yum -y install php php-opcache
+systemctl restart httpd.service
+yum search php
+yum -y install php-mysqlnd php-pdo
+yum -y install php-gd php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-soap php-curl php-pecl-memcache php-pecl-memcached curl curl-devel php-fpm php-cli php-devel php-mysqlnd php-common php-json php-intl php-mcrypt php-zip 
+systemctl restart httpd.service
+yum -y install phpMyAdmin
+mysql_secure_installation
