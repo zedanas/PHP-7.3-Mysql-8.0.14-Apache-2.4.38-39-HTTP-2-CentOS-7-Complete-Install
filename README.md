@@ -1,26 +1,35 @@
-# PHP-7.3-Mysql-Apache-PhpMyAdmin-CentOS-7-Complete-Install
+# PHP/7.3.0RC5 Mysql/5.6.42 Apache/2.4.6 PhpMyAdmin/4.4.15.10 CentOS 7 Complete Install
 Server:
 CPU: Intel(R) Xeon(R) CPU D-1541 @ 2.10GHz
-     Cores: 16
-     Cache: 12288KB
+
+Cores: 16
+
+Cache: 12288KB
+
 RAM: 2x 16384MB 
+
 Disks: 2 x 480GB SSd RAID0
+
 Motherboard: X10SDV-TLN4F
+
 
 Kernel version
 4.9.133-xxxx-std-ipv6-64
 
-PHP/7.3.0RC5 Mysql/5.6.42 Apache/2.4.6 PhpMyAdmin/4.4.15.10 CentOS 7 Complete Install
+
 
 After complete installiation please follow instructions below:
 
 Replace "<Directory /usr/share/phpMyAdmin/>" on phpMyAdmin config:
+
 vim /etc/httpd/conf.d/phpMyAdmin.conf
 
 <Directory /usr/share/phpMyAdmin/>
+
    AddDefaultCharset UTF-8
 
 <IfModule mod_authz_core.c>
+	
 # Apache 2.4
 <RequireAny>
 Require all granted
@@ -39,15 +48,15 @@ Replace "<IfModule  mod_php7.c>" on Apache config file:
 vim /etc/http/php.d/php.conf
 
 <IfModule  mod_php7.c>
-    # Cause the PHP interpreter to handle files with a .php extension.
-    <FilesMatch \.(php|phar)$>
-    # SetHandler application/x-httpd-php
-	    SetHandler "proxy:fcgi://127.0.0.1:9000"
-    </FilesMatch>
-    php_value session.save_handler "files"
-    php_value session.save_path    "/var/lib/php/session"
-    php_value soap.wsdl_cache_dir  "/var/lib/php/wsdlcache"
-    php_value opcache.file_cache   "/var/lib/php/opcache"
+# Cause the PHP interpreter to handle files with a .php extension.
+<FilesMatch \.(php|phar)$>
+# SetHandler application/x-httpd-php
+SetHandler "proxy:fcgi://127.0.0.1:9000"
+</FilesMatch>
+php_value session.save_handler "files" 
+php_value session.save_path    "/var/lib/php/session" 
+php_value soap.wsdl_cache_dir  "/var/lib/php/wsdlcache" 
+php_value opcache.file_cache   "/var/lib/php/opcache" 
 </IfModule>
 
 Replace "[mysqld]" settings on my config file:
