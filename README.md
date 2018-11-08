@@ -41,7 +41,7 @@ Allow from ::1
 </Directory>
 ```
 
-Replace "<IfModule  mod_php7.c>" on Apache config file:
+### Replace "<IfModule  mod_php7.c>" on Apache config file:
 vim /etc/http/php.d/php.conf
 
 ```
@@ -58,7 +58,7 @@ php_value opcache.file_cache   "/var/lib/php/opcache"
 </IfModule>
 ```
 
-Replace "[mysqld]" settings on my config file:
+### Replace "[mysqld]" settings on my config file:
 vim /etc/my.cfg
 
 ```
@@ -92,7 +92,7 @@ log-error=/var/log/mysqld.log
 pid-file=/var/run/mysqld/mysqld.pid
 ```
 
-Add Zend OPcache settings on php.ini file:
+### Add Zend OPcache settings on php.ini file:
 vim /etc/php.ini
 
 ```
