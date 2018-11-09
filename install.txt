@@ -1,7 +1,7 @@
 rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY*
 yum -y install epel-release
 rpm -Uvh http://rpms.remirepo.net/enterprise/remi-release-7.rpm
-rpm -Uvh http://repo.mysql.com/mysql-community-release-el7-7.noarch.rpm
+rpm -Uvh repo.mysql.com/mysql80-community-release-el7-1.noarch.rpm
 yum -y install nano
 yum -y install vim
 yum -y install mysql-server
