@@ -25,8 +25,8 @@ sudo yum update -y -q
 sudo systemctl start httpd.service mysqld.service
 sudo systemctl enable httpd.service mysqld.service
 ab -k -c 350 -n 20000 localhost/index.php
-sudo grep 'temporary password' /var/log/mysqld.log
-mysql_secure_installation
 sudo php -v
 sudo mysql -V
 sudo httpd -V
+sudo grep 'temporary password' /var/log/mysqld.log
+mysql_secure_installation
