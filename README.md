@@ -1,4 +1,4 @@
-# PHP/7.3.0RC5 Mysql/5.6.42 Apache/2.4.6 PhpMyAdmin/4.4.15.10 CentOS 7 Complete Install
+# PHP/7.3.0RC5 Mysql 8.0.14 Apache 2.4.38 HTTP/2 PhpMyAdmin/4.8 CentOS 7 Complete Install
 Server:
 CPU: Intel(R) Xeon(R) CPU D-1541 @ 2.10GHz
 
@@ -8,13 +8,13 @@ Cache: 12288KB
 
 RAM: 2x 16384MB 
 
-Disks: 2 x 480GB SSd RAID0
+Disks: 2 x 480GB SSd RAID-0
 
 Motherboard: X10SDV-TLN4F
 
 
 Kernel version
-4.9.133-xxxx-std-ipv6-64
+3.10.0-957.1.3.el7.x86_64
 
 ## After complete installiation please follow instructions below:
 
