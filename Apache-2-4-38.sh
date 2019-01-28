@@ -4,9 +4,9 @@ git clone https://github.com/google/brotli.git
 curl http://mirrors.whoishostingthis.com/apache/apr/apr-1.6.5.tar.gz  | tar xz
 curl http://mirrors.whoishostingthis.com/apache/apr/apr-util-1.6.1.tar.gz | tar xz
 curl http://mirrors.whoishostingthis.com/apache/httpd/httpd-2.4.38.tar.gz | tar xz
-wget https://github.com/nghttp2/nghttp2/releases/download/v1.34.0/nghttp2-1.34.0.tar.gz 
-tar -zxvf nghttp2-1.34.0.tar.gz  
-rm -rf /nghttp2-1.34.0.tar.gz && cd nghttp2-1.34.0
+wget https://github.com/nghttp2/nghttp2/releases/download/v1.36.0/nghttp2-1.36.0.tar.gz 
+tar -zxvf nghttp2-1.36.0.tar.gz  
+rm -rf /tmp/nghttp2-1.36.0.tar.gz && cd nghttp2-1.36.0
 ./configure 
 make && make test
 sudo make install 
