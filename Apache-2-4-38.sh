@@ -36,7 +36,6 @@ make && make test
 sudo make install
 cd /tmp
 rm -rf /usr/lib/systemd/system/httpd.service && rm -rf  /usr/lib/systemd/system/httpd.service
-touch /usr/lib/systemd/system/httpd.service && touch  /usr/lib/systemd/system/httpd.service
 echo "[Unit]
 Description=The Apache HTTP Server
 After=network.target
@@ -48,4 +47,4 @@ ExecStop=/usr/bin/apachectl -k graceful-stop
 PIDFile=/exc/httpd/logs/httpd.pid
 PrivateTmp=true
 [Install]
-WantedBy=multi-user.target" >> /home/httpd.service
+WantedBy=multi-user.target" >> /usr/lib/systemd/system/httpd.service
