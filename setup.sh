@@ -12,8 +12,8 @@ sudo yum-config-manager --disable remi-php71
 sudo yum-config-manager --disable remi-php72
 sudo yum-config-manager --enable remi-php73
 sudo yum -y install php php-cli vim php-fpm php-mysqlnd git zlib php-opcache php-pdo php-lz4 p7zip php-lzma \
-php-gd php-zip php-devel php-gd php-mcrypt php-mbstring php-curl php-xml php-pear php-bcmath php-json php-oci8 \
-php-odbc php-pspell php-smbclient unit-php php-zstd php-zstd-devel php-scldevel php-process httpd autoconf automake \
+php-gd php-zip php-devel php-gd php-mcrypt php-mbstring php-curl php-xml php-pear php-bcmath php-json \
+php-odbc php-pspell php-smbclient php-zstd php-zstd-devel php-scldevel php-process httpd autoconf automake \
 cmake expat-devel libtool composer libnghttp2-devel pcre-devel mod_ssl sudo wget perl zlib-devel pcre-devel libxml2-devel \
 openssl-devel expat-devel php-ldap -y -q
 sudo yum -y install https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm -q
