@@ -12,11 +12,13 @@ gpg --verify linux-4.9.146.tar.sign
 wget https://mirrors.edge.kernel.org/pub/linux/kernel/v4.x/linux-4.9.146.tar.xz
 xz -d -v linux-4.9.146.tar.xz
 gpg --verify linux-4.9.146.tar.sign
+
 # - Satge 2 - #
 gpg --recv-keys !!! ADD A PRINTED KEY !!!
 tar xvf linux-4.9.146.tar
 cd linux-4.9.146 && cp -v /boot/config-$(uname -r) .config
 make menuconfig
+
 # - Satge 3 - #
 make --jobs=3 --silent
 sudo make modules_install --jobs=3 --silent
