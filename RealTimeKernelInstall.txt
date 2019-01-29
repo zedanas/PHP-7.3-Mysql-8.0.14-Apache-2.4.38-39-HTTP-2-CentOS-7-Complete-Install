@@ -6,6 +6,7 @@
 ###################################################################################
 # - Satge 1 - #
 cd /tmp
+sudo yum install hmaccalc zlib-devel binutils-devel elfutils-libelf-devel ncurses-devel bc wget -y -q
 wget https://mirrors.edge.kernel.org/pub/linux/kernel/v4.x/linux-4.9.146.tar.sign
 wget https://mirrors.edge.kernel.org/pub/linux/kernel/projects/rt/4.9/patch-4.9.146-rt125.patch.xz
 gpg --verify linux-4.9.146.tar.sign
