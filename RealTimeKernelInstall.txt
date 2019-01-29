@@ -1,5 +1,5 @@
 ###################################################################################
-# Real Time Kernel Build And Install Script ---->> RealTimeKernelInstall.txt      #
+# Real Time Kernel Build And Install Instructions --->> RealTimeKernelInstall.txt #
 # All available kernel realises you can find it here:                             #
 # https://mirrors.edge.kernel.org/pub/linux/kernel/                               #
 # K. G. 29.01.2019                                                                #
