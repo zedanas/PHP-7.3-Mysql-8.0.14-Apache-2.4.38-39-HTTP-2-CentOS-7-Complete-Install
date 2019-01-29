@@ -1,3 +1,9 @@
+###################################################################################
+# Apache 2.4.38 build and install --->> Apache-2-4-38.sh                          #
+# Runs script: chmod -R 777 Apache-2-4-38.sh && bash Apache-2-4-38.sh             #
+# K. G. 29.01.2019                                                                #
+###################################################################################
+
 #!bin/bash
 mkdir /tmp
 git clone git@github.com:google/brotli.git
