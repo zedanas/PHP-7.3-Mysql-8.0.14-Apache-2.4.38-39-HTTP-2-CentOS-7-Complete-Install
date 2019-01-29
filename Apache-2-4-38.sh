@@ -1,6 +1,6 @@
 #!bin/bash
 mkdir /tmp
-git clone https://github.com/google/brotli.git
+git clone git@github.com:google/brotli.git
 curl http://mirrors.whoishostingthis.com/apache/apr/apr-1.6.5.tar.gz  | tar xz
 curl http://mirrors.whoishostingthis.com/apache/apr/apr-util-1.6.1.tar.gz | tar xz
 curl http://mirrors.whoishostingthis.com/apache/httpd/httpd-2.4.38.tar.gz | tar xz
