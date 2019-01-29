@@ -1,8 +1,6 @@
 ###################################################################################
 # PHP 7.3 php-fpm mysql and other libs instalation --->> setup.sh                 #
 # Runs script: chmod -R 777 setup.sh && bash setup.sh                             #
-# All available kernel realises you can find it here:                             #
-# https://mirrors.edge.kernel.org/pub/linux/kernel/                               #
 # K. G. 29.01.2019                                                                #
 ###################################################################################
 
