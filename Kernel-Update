@@ -5,7 +5,9 @@
 # K. G. 29.01.2019                                                                #
 ###################################################################################
 # - Satge 1 - #
-cd /tmp
+rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY*
+yum -y install epel-release yum-utils && yum groups install "Development Tools" "Compatibility Libraries" -y -q
+cd /tmp && mkdir /build_kernel && cd /tmp/build_kernel
 sudo yum install hmaccalc zlib-devel binutils-devel elfutils-libelf-devel ncurses-devel bc wget -y -q
 wget https://mirrors.edge.kernel.org/pub/linux/kernel/v4.x/linux-4.9.146.tar.sign
 gpg --verify linux-4.9.146.tar.sign
