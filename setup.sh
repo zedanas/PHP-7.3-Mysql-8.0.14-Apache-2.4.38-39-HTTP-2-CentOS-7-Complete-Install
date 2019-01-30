@@ -4,10 +4,10 @@
 # K. G. 29.01.2019                                                                #
 ###################################################################################
 #!/bin/bash
-rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY* \
-yum -y --quiet install epel-release yum-utils && yum groups install 'Development Tools' 'Compatibility Libraries' \
-yum -y --quiet install hmaccalc zlib-devel binutils-devel elfutils-libelf-devel ncurses-devel bc wget \
-yum -y --quiet install tuned-* htop ImageMagick7 \
+rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY* -qvy \
+yum install epel-release yum-utils && yum groups install 'Development Tools' 'Compatibility Libraries' -qvy \
+yum install hmaccalc zlib-devel binutils-devel elfutils-libelf-devel ncurses-devel bc wget -qvy \
+yum install tuned-* htop ImageMagick7 -qvy \
 tuned --profile throughput-performance --daemon \
 yum-config-manager --disable remi-php54 \
 yum-config-manager --disable remi-php56 \
@@ -15,19 +15,19 @@ yum-config-manager --disable remi-php70 \
 yum-config-manager --disable remi-php71 \
 yum-config-manager --disable remi-php72 \
 yum-config-manager --enable remi-php73 \
-yum -y -quiet --skip-broken install php php-cli vim php-fpm php-mysqlnd git gitlib php-opcache php-pdo xz lz4 p7zip lzma \
+yum install php php-cli vim php-fpm php-mysqlnd git gitlib php-opcache php-pdo xz lz4 p7zip lzma \
 php-gd php-zip php-devel php-gd php-mcrypt php-mbstring php-xml php-pear php-bcmath php-json php-ldap \
 php-odbc php-zstd php-zstd-devel php-scldevel php-process autoconf automake openssl-devel expat-devel \
-cmake expat-devel libtool composer libnghttp2-devel pcre-devel sudo wget perl pcre-devel libxml2-devel \
-yum -y --quiet install https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm \
-yum -y --quiet  install mysql-server \
-yum -y --quiet  clean all -v && yum update  \ 
+cmake expat-devel libtool composer libnghttp2-devel pcre-devel sudo wget perl pcre-devel libxml2-devel -qvy \
+yum install https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm -qvy \
+yum install mysql-server -qvy \
+yum clean all -v && yum update -qvy  \ 
 mkdir /var/www && mkdir /var/www/html && cd /var/www/html \
 git clone git@github.com:phpmyadmin/phpmyadmind.git \
 cd phpmyadmin && composer update \
 touch /var/www/html/index.php \
 echo "<?php phpinfo(); ?>" >> /var/www/html/index.php \
-yum -y -quiet update \
+yum update -qvy \
 systemctl start mysqld.service \ 
 systemctl enable mysqld.service \
 php -v && mysql -V \
