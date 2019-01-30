@@ -1,14 +1,13 @@
+#!/bin/bash
 ###################################################################################
 # PHP 7.3 php-fpm mysql and other libs instalation --->> setup.sh                 #
 # Runs script: chmod -R 777 setup.sh && bash setup.sh                             #
 # K. G. 29.01.2019                                                                #
 ###################################################################################
-
-#!/bin/bash
 rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY*
-sudo yum -y install http://rpms.remirepo.net/enterprise/remi-release-7.rpm -q
-sudo yum -y install epel-release yum-utils nfs-utils gcc gcc-c++ -q
-sudo yum -y install hmaccalc zlib-devel binutils-devel elfutils-libelf-devel ncurses-devel bc wget -q
+yum -y install epel-release yum-utils && yum groups install "Development Tools" "Compatibility Libraries" -y -q
+cd /tmp && mkdir /build_kernel && cd /tmp/build_kernel
+sudo yum install hmaccalc zlib-devel binutils-devel elfutils-libelf-devel ncurses-devel bc wget -y -q
 sudo yum install tuned-* htop ImageMagick7 -y -q
 sudo tuned --profile throughput-performance --daemon
 sudo tuned-adm profile throughput-performance
