@@ -6,7 +6,8 @@
 ###################################################################################
 rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY*
 yum -y install epel-release yum-utils && yum groups install "Development Tools" "Compatibility Libraries" -q
-cd /tmp && mkdir /tmp/build && cd /tmp/build
+cd /tmp 
+#mkdir /tmp/build && cd /tmp/build
 sudo yum -y install hmaccalc zlib-devel binutils-devel elfutils-libelf-devel ncurses-devel bc wget -q
 git clone git@github.com:google/brotli.git
 curl http://mirrors.whoishostingthis.com/apache/apr/apr-1.6.5.tar.gz  | tar xz
@@ -36,7 +37,7 @@ mkdir out && cd out
 make -j4
 make test 
 sudo make -j4 install 
-cd /tmp/build
+cd /tmp
 cp -r apr-1.6.5 httpd-2.4.38/srclib/apr
 cp -r apr-util-1.6.1 httpd-2.4.38/srclib/apr-util
 cd httpd-2.4.38
@@ -47,7 +48,7 @@ cd httpd-2.4.38
 make  -j4 
 make test  -j4
 sudo make -j4 install
-cd /tmp/build
+cd /tmp
 rm -rf /usr/lib/systemd/system/httpd.service && rm -rf  /usr/lib/systemd/system/httpd.service
 echo "[Unit]
 Description=The Apache HTTP Server
