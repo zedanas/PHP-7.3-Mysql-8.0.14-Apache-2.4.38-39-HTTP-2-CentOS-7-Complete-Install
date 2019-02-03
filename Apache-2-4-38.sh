@@ -58,7 +58,7 @@ Type=forking
 ExecStart=/usr/bin/apachectl -k start
 ExecReload=/usr/bin/apachectl -k graceful
 ExecStop=/usr/bin/apachectl -k graceful-stop
-PIDFile=/exc/httpd/logs/httpd.pid
+PIDFile=/etc/httpd/logs/httpd.pid
 PrivateTmp=true
 [Install]
 WantedBy=multi-user.target" >> /usr/lib/systemd/system/httpd.service
