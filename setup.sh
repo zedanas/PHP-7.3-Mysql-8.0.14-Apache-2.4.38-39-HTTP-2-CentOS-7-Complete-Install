@@ -1,9 +1,9 @@
-#!/bin/bash
 ###################################################################################
 # PHP 7.3 php-fpm mysql and other libs instalation --->> setup.sh                 #
 # Runs script: chmod -R 777 setup.sh && bash setup.sh                             #
 # K. G. 29.01.2019                                                                #
 ###################################################################################
+#!/bin/bash
 rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY* -qvy \
 yum install epel-release yum-utils && yum groups install 'Development Tools' 'Compatibility Libraries' -q -y \
 yum install hmaccalc zlib-devel binutils-devel elfutils-libelf-devel ncurses-devel bc wget -q -y \
