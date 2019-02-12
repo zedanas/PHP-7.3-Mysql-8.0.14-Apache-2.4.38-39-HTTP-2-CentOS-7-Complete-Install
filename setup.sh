@@ -4,7 +4,7 @@
 # Runs script: chmod -R 777 setup.sh && bash setup.sh                             #
 # K. G. 29.01.2019                                                                #
 ###################################################################################
-rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY* -qvy \
+rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY* \
 yum install epel-release yum-utils && yum groups install 'Development Tools' 'Compatibility Libraries' -q -y \
 yum install hmaccalc zlib-devel binutils-devel elfutils-libelf-devel ncurses-devel bc wget -q -y \
 yum install tuned-* htop ImageMagick7 -q -y \
