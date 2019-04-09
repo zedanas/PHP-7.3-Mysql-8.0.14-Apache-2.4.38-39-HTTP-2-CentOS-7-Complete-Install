@@ -1,4 +1,4 @@
-# PHP/7.3+ Mysql 8.0.14 Apache 2.4.38 HTTP/2 PhpMyAdmin/4.8 CentOS 7 Complete Install
+# PHP/7.3+ Mysql 8.0.14 Apache 2.4.38-39 HTTP/2 PhpMyAdmin/4.8 CentOS 7 Complete Install
 Server:
 CPU: Intel(R) Xeon(R) CPU D-1541 @ 2.10GHz
 
