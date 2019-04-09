@@ -1,8 +1,8 @@
 #!bin/bash
 ###################################################################################
-# Apache 2.4.38 build and install --->> Apache-2-4-39.sh                          #
+# Apache 2.4.39 build and install --->> Apache-2-4-39.sh                          #
 # Runs script: chmod -x Apache-2-4-39.sh && ./Apache-2-4-39.sh                    #
-# K. G. 29.01.2019                                                                #
+# K. G. 09.04.2019                                                                #
 ###################################################################################
 yum groups install -y "Development Tools" "Compatibility Libraries" -q;
 sudo yum install -y perl zlib-devel pcre-devel libxml2-devel openssl-devel expat-devel cmake git automake autoconf libtool;
@@ -46,3 +46,4 @@ cp -r ../apr-util-1.6.1 srclib/apr-util;
 make --jobs=8;
 sudo make install;
 cd ..;
+openssl version && httpd - V;
