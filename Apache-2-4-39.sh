@@ -46,4 +46,4 @@ cp -r ../apr-util-1.6.1 srclib/apr-util;
 make --jobs=8;
 sudo make install;
 cd ..;
-openssl version && httpd - V;
+openssl version && httpd - V; 
