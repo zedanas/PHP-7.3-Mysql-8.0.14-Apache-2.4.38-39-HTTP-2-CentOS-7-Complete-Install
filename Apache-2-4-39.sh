@@ -1,10 +1,12 @@
-#!bin/bash
 ###################################################################################
 # Apache 2.4.39 build and install --->> Apache-2-4-39.sh                          #
 # Runs script: chmod -x Apache-2-4-39.sh && ./Apache-2-4-39.sh                    #
-# K. G. 09.04.2019                                                                #
+# K. G. 09.04.2019 last updated on 13.04.2019                                     #
 ###################################################################################
-yum groups install -y "Development Tools" "Compatibility Libraries" -q;
+rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY* ;
+yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm -q;
+yum install -y yum-utils -q;
+yum groups install 'Development Tools' 'Compatibility Libraries' -q;
 sudo yum install -y perl zlib-devel pcre-devel libxml2-devel openssl-devel expat-devel cmake git automake autoconf libtool;
 cd ~;
 mkdir sources;
