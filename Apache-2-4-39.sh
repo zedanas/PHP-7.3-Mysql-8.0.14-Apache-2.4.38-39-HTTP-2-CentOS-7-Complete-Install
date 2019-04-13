@@ -1,6 +1,8 @@
 ###################################################################################
 # Apache 2.4.39 build and install --->> Apache-2-4-39.sh                          #
-# Runs script: chmod -x Apache-2-4-39.sh && ./Apache-2-4-39.sh                    #
+# To run script use following comands:                                            #
+# chmod +x Apache-2-4-39.sh                                                       #
+# ./Apache-2-4-39.sh                                                              #
 # K. G. 09.04.2019 last updated on 13.04.2019                                     #
 ###################################################################################
 rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY* ;
