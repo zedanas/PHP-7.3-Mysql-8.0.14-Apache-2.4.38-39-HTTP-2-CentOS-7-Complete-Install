@@ -6,7 +6,7 @@
 # Script works with Google Cloud VM Instance (centos 7)                           #
 # K. G. 13.04.2019                                                                #
 ###################################################################################
-pkg="zenity"
+pkg="openssh"
 if rpm -q --quiet $pkg
 then
     echo "$pkg installed"
