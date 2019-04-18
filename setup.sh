@@ -5,7 +5,7 @@
 # K. G. 29.01.2019                                                                #
 ###################################################################################
 rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY* ;
-yum install -y yum-utils && yum groups install 'Development Tools' 'Compatibility Libraries' -q;
+yum install -y yum-utils && yum groups install 'Development Tools' 'Compatibility Libraries' -y -q;
 yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm -q;
 yum install -y hmaccalc zlib-devel binutils-devel elfutils-libelf-devel ncurses-devel bc wget -q;
 yum install tuned-* htop ImageMagick7 -q -y ;
