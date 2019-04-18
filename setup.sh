@@ -13,7 +13,7 @@ tuned --profile throughput-performance --daemon;
 sudo yum-config-manager --disable remi-php* ;
 sudo yum-config-manager --enable remi-php73;
 yum install -y php php-cli vim php-fpm php-mysqlnd git gitlib php-opcache php-pdo xz lz4 p7zip lzma php-gd php-zip php-devel php-gd php-mcrypt php-mbstring php-xml php-pear php-bcmath php-json php-ldap php-odbc php-zstd php-zstd-devel php-scldevel php-process autoconf automake openssl-devel expat-devel cmake expat-devel libtool composer libnghttp2-devel pcre-devel sudo wget perl pcre-devel libxml2-devel;
-yum install -y https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm -q;
+yum install -y https://dev.mysql.com/get/mysql80-community-release-el7-2.noarch.rpm -q;
 yum install -y mysql-server -q;
 yum clean all -v;
 rm -rf /var/cache/* ;
