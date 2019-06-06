@@ -1,3 +1,4 @@
+~!/bin/bash
 ###################################################################################
 # Apache 2.4.39 build and install --->> Apache-2-4-39.sh                          #
 # To run script use following comands:                                            #
@@ -5,17 +6,33 @@
 # ./Apache-2-4-39.sh                                                              #
 # K. G. 09.04.2019 last updated on 13.04.2019                                     #
 ###################################################################################
+yum -y install dnf cockpit cockpit* ;
+if [[ "$DNF_ENABLE" = [yY] ]]; then
+	RPI='dnf -y install'
+	RPIQ='dnf -y -q install'
+	RPR='dnf -y remove'
+	RPRQ='dnf -y -q remove'
+	RPU='dnf -y update'
+	RPUQ='dnf -y -q update'
+else
+	RPI='yum -y install'
+	RPIQ='yum -y -q install'
+	RPR='yum -y remove'
+	RPRQ='yum -y -q remove'
+	RPU='yum -y update'
+	RPUQ='yum -y -q update'
+fi
 echo 'Preparing...';
 cd ~;
 mkdir sources;
 cd sources;
-yum update -y --quiet;
+RPIQ update ;
 wget http://rpms.remirepo.net/enterprise/remi-release-7.rpm --quiet;
-yum localinstall -y remi-release-7.rpm --quiet;
-yum install -y epel-release yum-utils --quiet;
-yum groups install -y 'Development Tools' 'Compatibility Libraries' --quiet;
-yum install -y perl wget zlib-devel systemtap-devel pcre-devel libapreq2 libapreq2-devel openldap-devel libxml2-devel openssl-devel expat-devel valgrind cmake git automake autoconf libtool lbzip2 lbzip2-utils pbzip2 bzip2-devel bzip2 libicu-devel xz-devel xz-libs xz libicu icu xz-compat-libs which python36 libpsl-devel libidn2-devel CUnit-devel CUnit python36-devel lcov.noarch --quiet;
-systemctl stop httpd --quiet;
+RPIQ localinstall remi-release-7.rpm;
+RPIQ install epel-release yum-utils;
+RPIQ groups install  'Development Tools' 'Compatibility Libraries' --quiet;
+RPIQ install perl wget zlib-devel systemtap-devel pcre-devel libapreq2 libapreq2-devel openldap-devel libxml2-devel openssl-devel expat-devel valgrind cmake git automake autoconf libtool lbzip2 lbzip2-utils pbzip2 bzip2-devel bzip2 libicu-devel xz-devel xz-libs xz libicu icu xz-compat-libs which python36 libpsl-devel libidn2-devel CUnit-devel CUnit python36-devel lcov.noarch --quiet;
+systemctl stop httpd;
 mv /etc/httpd/conf /etc/httpd/_conf;
 mv /etc/httpd/conf.d /etc/_conf.d;
 mv /etc/httpd/conf.modules.d /etc/_conf.modules.d;
