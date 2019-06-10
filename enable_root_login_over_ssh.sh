@@ -53,4 +53,4 @@ else
     yum install -y $pkg -q;
 fi
 
-# curl -sL https://github.com/zedanas/PHP-7.3-Mysql-8.0.14-Apache-2.4.38-39-HTTP-2-CentOS-7-Complete-Install/enable_root_login_over_ssh.sh | bash
+# curl -sL https://raw.githubusercontent.com/zedanas/PHP-7.3-Mysql-8.0.14-Apache-2.4.38-39-HTTP-2-CentOS-7-Complete-Install/master/enable_root_login_over_ssh.sh | bash
