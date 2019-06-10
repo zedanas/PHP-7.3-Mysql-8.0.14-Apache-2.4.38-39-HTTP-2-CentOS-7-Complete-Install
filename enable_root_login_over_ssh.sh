@@ -32,8 +32,8 @@ echo -e "$color$message" ; $Reset
 return
 }
  if [[ ! -f /usr/bin/wget ]]; then
-    yum -y -q  install dnf
-	cecho "INSTALLED: $(rpm -qa dnf)" $green
+    yum -y -q  install wget
+	cecho "INSTALLED: $(rpm -qa wget)" $green
  fi
 pkg="openssh"
 if rpm -q --quiet $pkg
