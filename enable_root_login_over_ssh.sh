@@ -44,8 +44,8 @@ sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_
 sed -i 's/PermitRootLogin no/PermitRootLogin yes/g' /etc/ssh/sshd_config;
 systemctl restart sshd && yum update -y -q && yum -q clean all && systemctl daemon-reload --quiet;
 echo "1234" | passwd --stdin root;
-cecho "New root password: 1234"; $red
-cecho "Now you can connect to your server using root password."; $green
+cecho "New root password: 1234" $red
+cecho "Now you can connect to your server using root password." $green
 cecho "Your Server ip addres:" $green
 curl ifconfig.co;
 
