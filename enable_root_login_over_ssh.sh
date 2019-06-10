@@ -38,18 +38,20 @@ return
 pkg="openssh"
 if rpm -q --quiet $pkg
 then
-    echo "$pkg installed"
+    cecho "$pkg installed" $green
 
 sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config;
 sed -i 's/PermitRootLogin no/PermitRootLogin yes/g' /etc/ssh/sshd_config;
-systemctl restart sshd && yum update -y -q && yum -q clean all -v && systemctl daemon-reload --quiet;
-echo 'Now you can connect to your server using root password.';
-echo 'Your Server ip addres:'
+systemctl restart sshd && yum update -y -q && yum -q clean all && systemctl daemon-reload --quiet;
+echo "1234" | passwd --stdin root;
+cecho "New root password: 1234"; $red
+cecho "Now you can connect to your server using root password."; $green
+cecho "Your Server ip addres:" $green
 curl ifconfig.co;
-passwd
+
 
 else
-	echo "$pkg NOT installed"
+	cecho "$pkg NOT installed" $red
     yum install -y $pkg -q;
 fi
 
