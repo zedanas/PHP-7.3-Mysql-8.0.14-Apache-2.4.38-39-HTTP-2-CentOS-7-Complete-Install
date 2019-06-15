@@ -59,7 +59,7 @@ if [ ! -f /usr/bin/tee ]; then
 yum install -y -q coreutils
 cecho "INSTALLED: $(rpm -q coreutils)" $green
 fi
-if [[ "$(rpm -q deltarpm 2>&1 | grep grep 'not installed' >/dev/null 2>&1; echo $?)" != '0' ]]; then
+if [[ "$(rpm -q deltarpm 2>&1 | grep 'not installed' >/dev/null 2>&1; echo $?)" != '0' ]]; then
 yum install -y -q  deltarpm
 cecho "INSTALLED: $(rpm -q deltarpm)" $green
 fi
