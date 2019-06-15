@@ -32,40 +32,35 @@ echo -e "$color$message" ; $Reset
 return
 }
 if [ ! -f /usr/bin/wget ]; then
-echo "INSTALLING WGET"
-yum -y -q wget
+yum install -y -q wget
 cecho "INSTALLED: $(rpm -q wget)" $green
 fi
 if [ ! -f /usr/bin/git ]; then
-echo "INSTALLING WGET"
-yum -y -q wget
+yum install -y -q git
 cecho "INSTALLED: $(rpm -q git)" $green
 fi
 if [ ! -f /usr/bin/lynx ]; then
-echo "INSTALLING LYNX..."
-yum -y -q lynx
+yum install -y -q lynx
 cecho "INSTALLED: $(rpm -q lynx)" $green
 fi
 if [ ! -f /usr/bin/unzip ]; then
-echo "INSTALLING UNZIP..."
-yum -y -q unzip
+yum install -y -q unzip
 cecho "INSTALLED: $(rpm -q unzip)" $green
 fi
 if [ -f /usr/local/bin/lzip ]; then
-echo "INSTALLING LZIP..."
-yum -y -q lzip
+yum install -y -q lzip
 cecho "INSTALLED: $(rpm -q lzip)" $green
 fi
 if [[ ! -f /usr/bin/pigz ]]; then
-yum -y -q pigz
+yum install -y -q pigz
 cecho "INSTALLED: $(rpm -q pigz)" $green
 fi
 if [ ! -f /usr/bin/tee ]; then
-yum -y -q coreutils
+yum install -y -q coreutils
 cecho "INSTALLED: $(rpm -q coreutils)" $green
 fi
 if [[ "$(rpm -q deltarpm 2>&1 | grep grep 'not installed' >/dev/null 2>&1; echo $?)" != '0' ]]; then
-yum -y -q  deltarpm
+yum install -y -q  deltarpm
 cecho "INSTALLED: $(rpm -q deltarpm)" $green
 fi
 pkg="openssh"
