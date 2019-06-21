@@ -6,11 +6,64 @@
 # Script works with Google Cloud VM Instance (centos 7)                           #
 # K. G. 13.04.2019                                                                #
 ###################################################################################
-source inc/source.inc
 timedatectl set-timezone "Europe/London"
 if [ -f /etc/selinux/config ]; then
   sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config && setenforce 0
   sed -i 's/SELINUX=permissive/SELINUX=disabled/g' /etc/selinux/config && setenforce 0
+fi
+systemctl daemon-reload --quiet;
+red='\E[31;40m'
+green='\E[32;40m'
+yellow='\E[33;40m'
+blue='\E[34;40m'
+Reset="tput sgr0" 
+cecho ()
+{
+message=$1
+color=$2
+echo -e "$color$message" ; $Reset
+return
+}
+if [ ! -f /etc/resolv.conf ]; then
+echo ""
+cecho "Error: /etc/resolv.conf" $red
+cecho "File not exist!" $red
+echo ""
+cecho "Sample 1: " $blue
+cecho "echo -e 'search localdomain\nnameserver 8.8.8.8\nnameserver 8.8.4.4' > /etc/resolv.conf
+cecho "Sample 2: " $blue
+cecho "To create new /etc/resolv.conf file use following command: " $blue
+cecho "touch /etc/resolv.conf" $red
+cecho "To edit file use following command: " $blue
+cecho "vi /etc/resolv.conf" $red
+cecho "And press 'Insert' button." $blue
+cecho "search youdomain.com" $blue
+cecho "nameserver 8.8.8.8" $blue
+cecho "nameserver 8.8.4.4" $blue
+cecho "To save file press: (Esc)-->(Shift+;)-->(wq!)-->(Enter)" $red
+cecho "And reload script!" $yellow
+echo ""
+exit
+fi
+if [[ -z "$(cat /etc/resolv.conf)" ]]; then
+echo ""
+cecho "Error: /etc/resolv.conf" $red
+cecho "File is empty! No nameserver resolvers detected!" $red
+cecho "Please configure /etc/resolv.conf" $red
+echo ""
+cecho "Sample 1: " $blue
+cecho "echo -e 'search localdomain\nnameserver 8.8.8.8\nnameserver 8.8.4.4' > /etc/resolv.conf
+cecho "Sample 2: " $blue
+cecho "To edit file use following command: " $blue
+cecho "vi /etc/resolv.conf" $red
+cecho "And press 'Insert' button." $blue
+cecho "search youdomain.com" $blue
+cecho "nameserver 8.8.8.8" $blue
+cecho "nameserver 8.8.4.4" $blue
+cecho "To save file press: (Esc)-->(Shift+;)-->(wq!)-->(Enter)" $red
+cecho "And reload script!" $yellow
+echo ""
+exit
 fi
 if [ ! -f /usr/bin/wget ]; then
 yum install -y -q wget
