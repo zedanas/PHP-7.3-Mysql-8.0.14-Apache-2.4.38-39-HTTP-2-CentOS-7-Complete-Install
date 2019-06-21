@@ -6,31 +6,12 @@
 # Script works with Google Cloud VM Instance (centos 7)                           #
 # K. G. 13.04.2019                                                                #
 ###################################################################################
+source inc/source.inc
+timedatectl set-timezone "Europe/London"
 if [ -f /etc/selinux/config ]; then
   sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config && setenforce 0
   sed -i 's/SELINUX=permissive/SELINUX=disabled/g' /etc/selinux/config && setenforce 0
 fi
-systemctl daemon-reload --quiet;
-# Setup Colours
-black='\E[30;40m'
-red='\E[31;40m'
-green='\E[32;40m'
-yellow='\E[33;40m'
-blue='\E[34;40m'
-magenta='\E[35;40m'
-cyan='\E[36;40m'
-white='\E[37;40m'
-Reset="tput sgr0" 
-
-cecho ()                     # Coloured-echo.
-                             # Argument $1 = message
-                             # Argument $2 = color
-{
-message=$1
-color=$2
-echo -e "$color$message" ; $Reset
-return
-}
 if [ ! -f /usr/bin/wget ]; then
 yum install -y -q wget
 cecho "INSTALLED: $(rpm -q wget)" $green
@@ -59,10 +40,16 @@ if [ ! -f /usr/bin/tee ]; then
 yum install -y -q coreutils
 cecho "INSTALLED: $(rpm -q coreutils)" $green
 fi
-if [[ "$(rpm -q deltarpm 2>&1 | grep 'not installed' >/dev/null 2>&1; echo $?)" != '0' ]]; then
-yum install -y -q  deltarpm
+
+if [ ! -f /usr/bin/applydeltarpm ]; then
+yum install -y -q coreutils
 cecho "INSTALLED: $(rpm -q deltarpm)" $green
 fi
+if [ ! -f /usr/bin/screen ]; then
+yum install -y -q screen
+cecho "INSTALLED: $(rpm -q screen)" $green
+fi
+ 
 pkg="openssh"
 if rpm -q --quiet $pkg
 then
